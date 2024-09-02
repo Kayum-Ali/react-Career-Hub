@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 
 
+
 const ErrorPage = () => {
     return (
-        <div>
+        <div className="flex flex-col justify-center items-center h-screen">
+            
             <h2>ooops!!!</h2>
-            <Link to='/'>Go Back Home</Link>
+            <Link to='/' className="btn btn-accent">Go Back Home</Link>
         </div>
     );
 };
