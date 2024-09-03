@@ -43,7 +43,7 @@ const Footer = () => {
 
         <div className="container mx-auto">
              <hr />
-           <div  className="flex justify-between   mt-3 py-5">
+           <div  className="flex justify-between   mt-3 py-5 ">
               <p>@2023 CareerHub. All Rights Reserved</p>
                <p>Powered By CareerHub</p>
            </div>
