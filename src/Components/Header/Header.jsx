@@ -5,15 +5,11 @@ import './Header.css'
 const Header = () => {
 
     const links = <>
-        <li><NavLink to='/' className=''>Home</NavLink></li>
-        <li><NavLink to='/blogs' className=''>Blogs</NavLink></li>
-        <li><NavLink to='/jobs' className=''>Jobs</NavLink></li>
-        <li><NavLink to='/applied' className=''>Applied Jobs</NavLink></li>
-        <li><NavLink to='/statistics' className=''>Statistics</NavLink></li>
-
-
-
-
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/blogs'>Blogs</NavLink></li>
+        <li><NavLink to='/jobs'>Jobs</NavLink></li>
+        <li><NavLink to={`/applied`}>Applied Jobs</NavLink></li>
+        <li><NavLink to='/statistics'>Statistics</NavLink></li>
     </>
 
 
