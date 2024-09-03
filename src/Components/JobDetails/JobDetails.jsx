@@ -6,9 +6,13 @@ import {
 } from "react-icons/ri";
 import { CiLocationOn } from "react-icons/ci";
 import { MdAddCall } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../utility/LocalStorage";
 
 
 const JobDetails = () => {
+ 
   const data = useLoaderData();
   const { jobId } = useParams();
   const details = data.find((params) => params.id === +jobId);
@@ -22,16 +26,22 @@ const JobDetails = () => {
     contact_information
   } = details;
 
+  const notify = () => {
+    saveJobApplication(+jobId)
+    toast.success("Successfuly appalied the job!");
+
+  } 
+
   return (
     <div>
       <div className="bg-[url('https://res.cloudinary.com/dqescabbl/image/upload/v1725326982/bg2_j9nznc.png')] bg-right-top bg-no-repeat pt-10  bg-[#F9F9FF]">
-        <div className="bg-[url('https://res.cloudinary.com/dqescabbl/image/upload/v1725326578/bg1_drx3nm.png')] h-[40vh]  bg-no-repeat ">
+        <div className="bg-[url('https://res.cloudinary.com/dqescabbl/image/upload/v1725326578/bg1_drx3nm.png')] h-[30vh]  bg-no-repeat bg-left-bottom">
           <h2 className="text-center font-bold text-2xl mt-10">job details</h2>
         </div>
       </div>
 
       <div className="grid grid-cols-1  lg:grid-cols-6 container gap-3 mx-auto py-12">
-        <div className="col-span-4">
+        <div className="col-span-4 px-5 lg:px-0">
           <h2 className="text-xl font-bold">
             Job Description :{" "}
             <span className="opacity-80 font-normal text-xl">
@@ -106,8 +116,10 @@ const JobDetails = () => {
                 </h2>
                 </div>
           </div>
-          <button className="bg-gradient-to-r from-[#828CFE] to-[#9379FF]  text-white font-bold py-2.5 w-full rounded-lg mt-3">Apply Now </button>
+          <button onClick={notify} className="bg-gradient-to-r from-[#828CFE] to-[#9379FF]  text-white font-bold py-2.5 w-full rounded-lg mt-3">Apply Now </button>
         </div>
+        
+        <ToastContainer />
       </div>
     </div>
   );
