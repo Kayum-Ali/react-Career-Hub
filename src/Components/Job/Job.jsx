@@ -4,9 +4,10 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 const Job = ({ job }) => {
 
-    const { logo,job_title,company_name,salary,location } = job
+    const { id, logo,job_title,company_name,salary,location } = job
     return (
         <div>
             <div className='border rounded-lg p-8'>
@@ -26,7 +27,10 @@ const Job = ({ job }) => {
                         <p className='flex gap-2 items-center'><RiMoneyDollarCircleLine></RiMoneyDollarCircleLine> Salary : {salary}</p>
                    </div>
                    <div className='mt-3'>
-                     <button className="bn632-hover bn20">View Details</button>
+                    <Link to={`/job/${id}`}>
+                        <button className="bn632-hover bn20">View Details</button>
+
+                    </Link>
                    </div>
                   
                   
