@@ -3,7 +3,7 @@ const Blogs = () => {
    <>
 
 
-<section className="py-6 sm:py-12 ">
+<section className="py-6 sm:py-12 bg-[#F9F9FF] ">
       <div className="container p-6 mx-auto space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold">Partem reprimique an pro</h2>
@@ -153,8 +153,8 @@ const Blogs = () => {
     </section>
 
 
-<div className="">
-	<div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg border-t-2 shadow-lg p-5 my-5">
+<div className=" bg-[#F9F9FF]">
+	<div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg border-t-2 shadow-lg p-5 py-5">
 		<div className="flex items-center justify-between">
 			<span className="text-sm ">Jun 1, 2020</span>
 			<a rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded ">Javascript</a>
