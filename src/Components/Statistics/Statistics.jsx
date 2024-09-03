@@ -88,7 +88,7 @@ const Statistics = () => {
 	<div className="container max-w-xl mx-auto">
 		<div className="flex flex-col items-center w-full p-6 space-y-8 rounded-md lg:h-full lg:p-8 bg-gray-900 text-gray-100">
 			<img src="https://res.cloudinary.com/dqescabbl/image/upload/v1723376802/shammi-20240810192422_d0cbqi.webp" alt="" className="w-20 h-20 rounded-full bg-gray-500" />
-			<blockquote className="max-w-lg text-lg italic font-medium text-center">"Et, dignissimos obcaecati. Recusandae praesentium doloribus vitae? Rem unde atque mollitia!"</blockquote>
+			<blockquote className="max-w-lg text-lg italic font-medium text-center">Et, dignissimos obcaecati. Recusandae praesentium doloribus vitae? Rem unde atque mollitia!</blockquote>
 			<div className="text-center text-gray-400">
 				<p>Leroy Jenkins</p>
 				<p>CEO of Company Co.</p>
