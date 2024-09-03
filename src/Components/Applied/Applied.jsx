@@ -8,6 +8,7 @@ import ShowApplied from "../ShowApplied/ShowApplied";
 const Applied = () => {
   const data = useLoaderData();
   const [appliedJobs, setAppliedJobs] = useState([]);
+  const [displayJobs, setDisplayJobs] = useState([]);
   useEffect(() => {
     const storedJobIds = getStoredJobApplication();
     if (data.length > 0) {
@@ -22,9 +23,26 @@ const Applied = () => {
  
         }
         setAppliedJobs(jobApplied);
+        setDisplayJobs(jobApplied)
    
     }
-  }, []);
+  }, [data]);
+
+
+  const handleFilterJobs = filter =>{
+
+    if(filter === 'All'){
+        setDisplayJobs(appliedJobs)
+    }
+    else if( filter === 'remote'){
+        const remoteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Remote')
+        setDisplayJobs(remoteJobs)
+    }
+    else if(filter === 'onsite'){
+        const onsiteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Onsite')
+        setDisplayJobs(onsiteJobs)
+    }
+  }
 
   return (
     <div>
@@ -39,9 +57,9 @@ const Applied = () => {
             <details className="dropdown">
             <summary className="btn m-1">Filter By <FaAngleDown></FaAngleDown></summary>
             <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-              <li><a>All</a></li>
-              <li><a>Remote</a></li>
-              <li><a>onsite</a></li>
+              <li onClick={()=> handleFilterJobs('All')}><a>All</a></li>
+              <li onClick={()=> handleFilterJobs('remote')}><a>Remote</a></li>
+              <li onClick={()=> handleFilterJobs('onsite')}><a>onsite</a></li>
              
             </ul>
             </details>
@@ -49,7 +67,7 @@ const Applied = () => {
 
          <div>
              {
-                appliedJobs.map(job => <ShowApplied key={job.id} job={job}></ShowApplied>)
+                displayJobs.map(job => <ShowApplied key={job.id} job={job}></ShowApplied>)
              }
          </div>
 
