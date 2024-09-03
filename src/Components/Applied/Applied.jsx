@@ -7,13 +7,22 @@ import ShowApplied from "../ShowApplied/ShowApplied";
 
 const Applied = () => {
   const data = useLoaderData();
-  const [jobApplied, setJobApplied] = useState([]);
+  const [appliedJobs, setAppliedJobs] = useState([]);
   useEffect(() => {
     const storedJobIds = getStoredJobApplication();
     if (data.length > 0) {
-      const appliedJobs = data.filter((job) => storedJobIds.includes(job.id));
-      setJobApplied(appliedJobs);
-      console.log(appliedJobs); // you can use this data for your purpose
+        const jobApplied = []
+        for(const id of storedJobIds){
+           if(Array.isArray(data)){
+            const jobDetail = data?.find(item => item.id === id);
+            if(jobDetail){
+                jobApplied.push(jobDetail);
+            }
+           }
+ 
+        }
+        setAppliedJobs(jobApplied);
+   
     }
   }, []);
 
@@ -40,7 +49,7 @@ const Applied = () => {
 
          <div>
              {
-                jobApplied.map(job => <ShowApplied key={job.id} job={job}></ShowApplied>)
+                appliedJobs.map(job => <ShowApplied key={job.id} job={job}></ShowApplied>)
              }
          </div>
 
