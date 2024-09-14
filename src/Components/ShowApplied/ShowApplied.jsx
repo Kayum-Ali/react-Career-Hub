@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import propTypes from "prop-types";
 const ShowApplied = ({job}) => {
-    const {id,logo,job_title,company_name,location,salary,
+    const {id,logo,job_title,company_name,location,salary,remote_or_onsite,job_type
     } = job;
     return (
         <div className="border p-8 mb-3">
@@ -17,8 +17,8 @@ const ShowApplied = ({job}) => {
                      <h3 className='font-bold text-xl mt-5'>{job_title}</h3>
                     <p>{company_name}</p>
                     <div className='flex gap-5 mt-3'>
-                       <button className="bn31" ><span className="bn31span">Remote</span></button>
-                       <button className="bn31" ><span className="bn31span">Fuill Time</span></button>
+                       <button className="bn31" ><span className="bn31span">{remote_or_onsite}</span></button>
+                       <button className="bn31" ><span className="bn31span"> {job_type} </span></button>
                       
                     </div>
                    <div className='flex gap-5 mt-3'>
